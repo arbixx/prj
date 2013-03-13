@@ -7,3 +7,6 @@ nbproject
 .project
 .settings
 composer.lock
+.c9revisions/*
+.c9revisions/README.md.c9save
+README.md
