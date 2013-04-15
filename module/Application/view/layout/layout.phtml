@@ -13,9 +13,9 @@
         var oUserAgent = new CUserAgent();
         oUserAgent.setUserAgent(navigator.userAgent);
         if ( oUserAgent.isAndroid() )
-            alert("Ce device est un android!");
+            alert("Ce device est un android!\n"+oUserAgent.getUserAgent());
         else
-            alert("Ce device n'est pas un android!");
+            alert("Ce device n'est pas un android!\n"+oUserAgent.getUserAgent());
     </script>
 </head>
     <body>
