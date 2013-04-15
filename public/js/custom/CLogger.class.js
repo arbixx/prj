@@ -7,23 +7,23 @@
  */
 function CLogger(){
     
-    this.debug(msg){
+    this.debug = function(msg){
         this.write('DEBUG',msg);
     }
     
-    this.info(msg){
+    this.info = function(msg){
         this.write('INFO',msg);
     }
     
-    this.warn(msg){
+    this.warn = function(msg){
         this.write('WARN',msg);
     }
         
-    this.error(msg){
+    this.error = function(msg){
         this.write('ERROR',msg);
     }
         
-    this.write(level,msg){
+    this.write = function(level,msg){
         write('['+level+'] '+msg);
     }
     
