@@ -1,10 +1,20 @@
 <div data-role="page">
     <!-- navigation panel -->
-    <div data-role="panel" id="mypanel">
-        <!-- panel content goes here -->
+    <div data-role="panel" id="navPanel">
+        <ul data-role="listview" data-theme="d" data-divider-theme="d" data-icon="false" data-global-nav="demos" class="jqm-list">
+            <li data-role="list-divider">List Divider 1</li>
+    		<li><a href="#">Categorie 1</a></li>
+            <li><a href="#">Categorie 2</a></li>
+            <li><a href="#">Categorie 3</a></li>
+            <li data-role="list-divider">List Divider 1</li>
+        	<li><a href="#">Categorie 4</a></li>
+            <li><a href="#">Categorie 5</a></li>
+            <li><a href="#">Categorie 6</a></li>
+        </ul>
     </div>
     
     <div data-role="header">
+        <a href="#navPanel" class="jqm-navmenu-link" data-icon="bars" data-iconpos="notext">Navigation</a>
         <h1>HEADER</h1>
     </div>
 	<div data-role="content">
