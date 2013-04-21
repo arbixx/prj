@@ -8,31 +8,33 @@
 function CLogger(){
     
     this.debug = function(msg){
-        this.write('DEBUG',msg);
+        writeLevelAndMsg('DEBUG',msg);
     }
     
     this.info = function(msg){
-        this.write('INFO',msg);
+        writeLevelAndMsg('INFO',msg);
     }
     
     this.warn = function(msg){
-        this.write('WARN',msg);
+        writeLevelAndMsg('WARN',msg);
     }
         
     this.error = function(msg){
-        this.write('ERROR',msg);
+        writeLevelAndMsg('ERROR',msg);
     }
         
-    this.write = function(level,msg){
-        write('['+level+'] '+msg);
+    function writeLevelAndMsg(level,msg){
+        writeMsg('['+level+'] '+msg);
     }
     
-    function write(msg){
+    function writeMsg(msg){
         if ( typeof console !== 'undefined' ){
             console.log(msg);
         }
         else
             alert(msg);
-    }
-    
+    }   
 }
+
+/** Declaration and instatiation of the global Logger object used throughout all JS files */
+var oLogger = new CLogger();
