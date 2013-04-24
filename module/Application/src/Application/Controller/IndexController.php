@@ -18,7 +18,7 @@ class IndexController extends AbstractActionController
     
     
     public function getCategoryHumeurTable(){
-        if (!$this->categoryHmeurTable){
+        if (!$this->categoryHumeurTable){
             $sm = $this->getServiceLocator();
             $this->categoryHumeurTable = $sm->get('Application\Model\CCategoryHumeurTable');
         }

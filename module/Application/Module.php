@@ -39,7 +39,7 @@ class Module
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function getServiceConfiguration()
+    public function getServiceConfig()
     {
         return array(
             'factories' => array(
@@ -55,7 +55,7 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new CCategoryHumeur());
                     return new TableGateway('category_humeur', $dbAdapter, null, $resultSetPrototype);
                 },
-            )
+            ),
         );
     }
 
