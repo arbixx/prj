@@ -12,7 +12,7 @@ class CCategoryHumeurTable {
     protected $tableGateway;   
     
     public function __construct( TableGateway $tableGateway ){
-        $this->tableGateway = tableGateway;
+        $this->tableGateway = $tableGateway;
     }
     
     public function fetchAll(){
