@@ -38,12 +38,12 @@ class Module implements ServiceProviderInterface
     {
         return include __DIR__ . '/config/module.config.php';
     }
-
+/*
     public function getServiceConfig()
     {
         return array(
             'factories' => array(
-                /** Factories for table category_humeur */
+                // Factories for table category_humeur
                 'Application\Model\CCategoryHumeurTable' =>  function($sm) {
                     $tableGateway = $sm->get('CCategoryHumeurTableGateway');
                     $table = new CCategoryHumeurTable($tableGateway);
@@ -58,7 +58,7 @@ class Module implements ServiceProviderInterface
             ),
         );
     }
-
+*/
 /*
                 'Application\Model\CHumeurTable' =>  function($sm) {
                     $tableGateway = $sm->get('CHumeurTableGateway');
