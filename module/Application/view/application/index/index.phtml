@@ -2,11 +2,13 @@
     <!-- navigation panel -->
     <div data-role="panel" data-display="overlay" id="navPanel">
         <ul data-role="listview" data-theme="d" data-divider-theme="d" data-icon="false" data-global-nav="demos" class="jqm-list">
-            <li data-role="list-divider">List Divider 1</li>
-    		<li><a href="#">Categorie 1</a></li>
-            <li><a href="#">Categorie 2</a></li>
-            <li><a href="#">Categorie 3</a></li>
-            <li data-role="list-divider">List Divider 1</li>
+            <li data-role="list-divider">Categories</li>
+            <?php
+                foreach($categories as $category){
+                    echo '<li><a href="#">'.$this->escapeHtml($category->getName()).'</a></li>';    
+                }
+            ?>
+    		<li data-role="list-divider">Types</li>
         	<li><a href="#">Categorie 4</a></li>
             <li><a href="#">Categorie 5</a></li>
             <li><a href="#">Categorie 6</a></li>
@@ -19,14 +21,6 @@
     </div>
 	<div data-role="content">
         HP Content Master II<br/>
-        <?php echo var_dump($categories) ?>
-        <ul>
-        <?php
-            foreach($categories as $category){
-                echo '<li>'.$this->escapeHtml($category->getName()).'</li>';    
-            }
-        ?>
-        </ul>
     </div>
 	<div data-role="footer">
         <h1>FOOTER</h1>
