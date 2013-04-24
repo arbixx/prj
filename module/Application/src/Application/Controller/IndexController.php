@@ -29,7 +29,7 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel( 
             array(
-                'categories' => $this->getHumeurCategoryTable()->fetchAll()
+                'categories' => $this->getCategoryHumeurTable()->fetchAll()
             )
         );
     }
