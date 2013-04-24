@@ -39,7 +39,7 @@ class Module
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function getServiceConfig()
+    public function getServiceConfiguration()
     {
         return array(
             'factories' => array(
@@ -55,7 +55,11 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new CCategoryHumeur());
                     return new TableGateway('category_humeur', $dbAdapter, null, $resultSetPrototype);
                 },
-                /** Factories for table humeur */
+            )
+        );
+    }
+
+/*
                 'Application\Model\CHumeurTable' =>  function($sm) {
                     $tableGateway = $sm->get('CHumeurTableGateway');
                     $table = new CHumeurTable($tableGateway);
@@ -67,7 +71,6 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new CHumeur());
                     return new TableGateway('humeur', $dbAdapter, null, $resultSetPrototype);
                 },
-                /** Factories for table type_humeur */
                 'Application\Model\CTypeHumeurTable' =>  function($sm) {
                     $tableGateway = $sm->get('CTypeHumeurTableGateway');
                     $table = new CTypeHumeurTable($tableGateway);
@@ -79,7 +82,6 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new CTypeHumeur());
                     return new TableGateway('type_humeur', $dbAdapter, null, $resultSetPrototype);
                 },
-                /** Factories for table comment */
                 'Application\Model\CCommentTable' =>  function($sm) {
                     $tableGateway = $sm->get('CCommentTableGateway');
                     $table = new CCommentTable($tableGateway);
@@ -91,7 +93,6 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new CComment());
                     return new TableGateway('comment', $dbAdapter, null, $resultSetPrototype);
                 },
-                /** Factories for table image */
                 'Application\Model\CImageTable' =>  function($sm) {
                     $tableGateway = $sm->get('CImageTableGateway');
                     $table = new CImageTable($tableGateway);
@@ -103,7 +104,6 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new CImage());
                     return new TableGateway('image', $dbAdapter, null, $resultSetPrototype);
                 },
-                /** Factories for table user */
                 'Application\Model\CUserTable' =>  function($sm) {
                     $tableGateway = $sm->get('CUserTableGateway');
                     $table = new CUserTable($tableGateway);
@@ -115,11 +115,7 @@ class Module
                     $resultSetPrototype->setArrayObjectPrototype(new CUser());
                     return new TableGateway('user', $dbAdapter, null, $resultSetPrototype);
                 },
-                
-            )
-        );
-    }
-
+*/
     public function getAutoloaderConfig()
     {
         return array(
