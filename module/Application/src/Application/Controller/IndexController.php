@@ -17,7 +17,7 @@ class IndexController extends AbstractActionController
     protected $categoryHumeurTable;
     
     
-    public function getHumeurCategories(){
+    public function getCategoryHumeurTable(){
         if (!$this->categoryHmeurTable){
             $sm = $this->getServiceLocator();
             $this->categoryHumeurTable = $sm->get('Application\Model\CCategoryHumeurTable');
@@ -27,7 +27,11 @@ class IndexController extends AbstractActionController
     
     public function indexAction()
     {
-        return new ViewModel();
+        return new ViewModel( 
+            array(
+                'categories' => $this->getHumeurCategoryTable()->fetchAll()
+            )
+        );
     }
     
     

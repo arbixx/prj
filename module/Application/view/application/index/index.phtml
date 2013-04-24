@@ -18,7 +18,15 @@
         <h1>HEADER</h1>
     </div>
 	<div data-role="content">
-        HP Content Master II
+        HP Content Master II<br/>
+        <?php echo var_dump($categories) ?>
+        <ul>
+        <?php
+            foreach($categories as $category){
+                echo '<li>'.$this->escapeHtml($category->getName()).'</li>';    
+            }
+        ?>
+        </ul>
     </div>
 	<div data-role="footer">
         <h1>FOOTER</h1>
