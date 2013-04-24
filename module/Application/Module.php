@@ -117,7 +117,7 @@ class Module
                 },
                 
             )
-        )
+        );
     }
 
     public function getAutoloaderConfig()
