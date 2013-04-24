@@ -3,7 +3,7 @@
  * Classe implementant la gateway accedant a la table category_humeur
  * 
  */
-namespace Application/Model;
+namespace Application\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
