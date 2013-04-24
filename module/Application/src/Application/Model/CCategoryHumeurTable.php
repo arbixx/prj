@@ -25,7 +25,7 @@ class CCategoryHumeurTable {
         $rowSet = $this->tableGateway->select( array( 'id'=>$id ) );
         $row = $rowSet->current();
         if ( !$row ){
-            throw new exception("Unable to find row with id=".$id."... Proceeding.")
+            throw new exception("Unable to find row with id=".$id."... Proceeding.");
         }
         return $row;
     }
@@ -34,7 +34,7 @@ class CCategoryHumeurTable {
         
         $data = array (
             'name' => $cat->getName(),
-            'desc' => $cat->getDesc()
+            'desc' => $cat->getDesc(),
         );
         $id = (int)$id;
         if ( $id == 0 )
@@ -43,7 +43,7 @@ class CCategoryHumeurTable {
             if ($this->getCateoryHumeur($id))
                 $this->tableGateway->update($data,array('id'=>$id));
             else
-                throw new Exception("Unable to find category to update with id=".$id."... Proceeding.")
+                throw new Exception("Unable to find category to update with id=".$id."... Proceeding.");
         }
     }
     
