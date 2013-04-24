@@ -31,27 +31,27 @@ class CUser {
     }
     
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
     public function getLogin(){
-        return $this->$login;
+        return $this->login;
     }
     public function getPassword(){
-        return $this->$pwd;
+        return $this->pwd;
     }    
     public function getEmail(){
-        return $this->$email;
+        return $this->email;
     }
     public function getImgId(){
-        return $this->$imgid;
+        return $this->imgid;
     }
     public function getDateCreation(){
-        return $this->$datecreation;
+        return $this->datecreation;
     }
     public function getNotifications(){
-        return $this->$notifications;
+        return $this->notifications;
     }
     public function getBlacklist(){
-        return $this->$blacklist;
+        return $this->blacklist;
     }
 }

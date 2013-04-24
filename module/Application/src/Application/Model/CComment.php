@@ -25,19 +25,19 @@ class CComment {
     }
     
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
     public function getHumeurId(){
-        return $this->$humeurid;
+        return $this->humeurid;
     }
     public function getUserId(){
-        return $this->$userid;
+        return $this->userid;
     }    
     public function getText(){
-        return $this->$text;
+        return $this->text;
     }
     public function getDate(){
-        return $this->$date;
+        return $this->date;
     }
     
     
