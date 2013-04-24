@@ -22,13 +22,13 @@ class CImage {
     
     
     public function getId(){
-        return this->$id;
+        return $this->$id;
     }
     public function getPath(){
-        return this->$path;
+        return $this->$path;
     }
     public function getFileName(){
-        return this->$filename;
+        return $this->$filename;
     }    
     
 }

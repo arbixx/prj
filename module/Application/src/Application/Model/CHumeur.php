@@ -31,27 +31,27 @@ class CHumeur {
     }
     
     public function getId(){
-        return this->$id;
+        return $this->$id;
     }
     public function getTypeId(){
-        return this->$typeid;
+        return $this->$typeid;
     }
     public function getCategoryId(){
-        return this->$categoryid;
+        return $this->$categoryid;
     }    
     public function getUserId(){
-        return this->$userid;
+        return $this->$userid;
     }
     public function getImgId(){
-        return this->$imgid;
+        return $this->$imgid;
     }
     public function getTitle(){
-        return this->$title;
+        return $this->$title;
     }
     public function getText(){
-        return this->$text;
+        return $this->$text;
     }
     public function getDateCreation(){
-        return this->$datecreation;
+        return $this->$datecreation;
     }
 }
