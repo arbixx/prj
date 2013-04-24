@@ -24,7 +24,7 @@ use Application\Model\CCategoryHumeurTable;
 
 
 
-class Module
+class Module implements ServiceProviderInterface
 {
     public function onBootstrap($e)
     {
