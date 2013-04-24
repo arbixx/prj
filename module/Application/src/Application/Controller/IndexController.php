@@ -14,6 +14,17 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+    protected $categoryHumeurTable;
+    
+    
+    public function getHumeurCategories(){
+        if (!$this->categoryHmeurTable){
+            $sm = $this->getServiceLocator();
+            $this->categoryHumeurTable = $sm->get('Application\Model\CCategoryHumeurTable');
+        }
+        return $this->categoryHumeurTable;
+    }
+    
     public function indexAction()
     {
         return new ViewModel();
