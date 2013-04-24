@@ -42,7 +42,7 @@ class Module
     public function getServiceConfig()
     {
         return array(
-            factories => array(
+            'factories' => array(
                 /** Factories for table category_humeur */
                 'Application\Model\CCategoryHumeurTable' =>  function($sm) {
                     $tableGateway = $sm->get('CCategoryHumeurTableGateway');
