@@ -1,0 +1,18 @@
+<?php
+
+$continue = true;
+echo '{';
+while( $continue )
+{
+    $user = $users->current();
+    echo $user->toJson();
+    $user = $users->next();
+    if ( $users->valid() ){
+        echo ',';
+    }
+    else{
+        $continue = false;
+    }
+}
+echo '}';
+?>
