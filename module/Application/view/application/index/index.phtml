@@ -1,28 +1,58 @@
+<script>
+function getOnlines(){
+    $("#idMsgUser").html(
+            "<div class=\"ui-block-a\" style=\"height:80px; text-align:center\">Loading...<br/><img src='./images/loading.gif'></div>"
+    );
+    $.ajax({
+        url:'application/index/test',
+        dataType: 'json',
+        type: 'POST',
+        error: 
+                function( jqXHR, textStatus, errorThrown ){
+                    alert("Error: "+textStatus+"\nError Thrown: "+errorThrown);
+                },
+        
+        success:
+                function(response){
+                    var listOnlinesHtml = "";
+                    for( var key in response){
+                        var oMetroUser = new CMetroUser();
+                        oMetroUser.setUserFromJSON(response[key]);
+                        listOnlinesHtml += oMetroUser.getHTML();
+                    }
+                    //oLogger.info(listOnlinesHtml);
+                    $('#idListOnlines').html(listOnlinesHtml).listview('refresh');
+                }
+    });
+}
+</script>
 <div data-role="page" data-theme="c">
     <!-- navigation panel -->
     <div data-role="panel" data-display="overlay" id="navPanel">
         <ul data-role="listview" data-theme="d" data-divider-theme="d" data-icon="false" data-global-nav="demos" class="jqm-list">
-            <li data-role="list-divider">Categories</li>
+            <li data-role="list-divider">Voir les onlines par ligne</li>
+            <li><a href="#navPanel" data-rel="close" onClick="javascript:getOnlines()">Toutes</a></li>
             <?php
-                foreach($categories as $category){
-                    echo '<li><a href="#">'.$this->escapeHtml($category->getName()).'</a></li>';    
+                foreach($lignes as $ligne){
+                    echo '<li><a href="#navPanel" data-rel="close">'.$this->escapeHtml($ligne->getName()).'</a></li>';    
                 }
             ?>
-    		<li data-role="list-divider">Types</li>
-        	<li><a href="#">Categorie 4</a></li>
-            <li><a href="#">Categorie 5</a></li>
-            <li><a href="#">Categorie 6</a></li>
-        </ul>
+    	</ul>
     </div>
     
     <div data-role="header">
         <a href="#navPanel" class="jqm-navmenu-link" data-icon="bars" data-iconpos="notext">Navigation</a>
         <h1>HEADER</h1>
     </div>
-	<div data-role="content">
-        HP Content Master II<br/>
+    <div data-role="content">
+        <div class="ui-grid-solo" id="idMsgUser">
+            
+        </div>
+        <ul id="idListOnlines" data-role="listview" data-filter="true" data-filter-placeholder="Cherchez un membre..." data-inset="true">
+            <li><a href="#">PlaceHolder</a></li>
+         </ul>
     </div>
-	<div data-role="footer">
+    <div data-role="footer">
         <h1>FOOTER</h1>
     </div>
 </div>

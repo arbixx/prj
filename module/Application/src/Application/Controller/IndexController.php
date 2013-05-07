@@ -14,26 +14,48 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-    protected $categoryHumeurTable;
+    protected $metroUserTable;
+    protected $metroLigneTable;
     
     
-    public function getCategoryHumeurTable(){
-        if (!$this->categoryHumeurTable){
+    public function getMetroUserTable(){
+        if (!$this->metroUserTable){
             $sm = $this->getServiceLocator();
-            $this->categoryHumeurTable = $sm->get('Application\Model\CCategoryHumeurTable');
+            $this->metroUserTable = $sm->get('Application\Model\CMetroUserTable');
         }
-        return $this->categoryHumeurTable;
+        return $this->metroUserTable;
+    }
+    public function getMetroLigneTable(){
+        if (!$this->metroLigneTable){
+            $sm = $this->getServiceLocator();
+            $this->metroLigneTable = $sm->get('Application\Model\CMetroLigneTable');
+        }
+        return $this->metroLigneTable;
     }
     
     public function indexAction()
     {
         return new ViewModel( 
             array(
-                'categories' => $this->getCategoryHumeurTable()->fetchAll()
+                'users' => $this->getMetroUserTable()->fetchAll(),
+                'lignes' => $this->getMetroLigneTable()->fetchAll(),
             )
         );
     }
     
+    public function testAction(){
+        $viewModel = new ViewModel(
+                array(
+                    'users' => $this->getMetroUserTable()->fetchAll(),
+                )
+        );
+        $viewModel->setTerminal(true);
+        return $viewModel;
+    }
     
+    public function ajaxGetOnlinesByLineAction(){
+        
+    }
+            
     
 }

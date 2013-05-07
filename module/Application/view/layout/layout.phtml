@@ -9,19 +9,12 @@
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
     <script src="./js/custom/CLogger.class.js"></script>
-    <script src="./js/custom/CUserAgent.class.js"></script>
+   <script src="./js/custom/CUserAgent.class.js"></script>
+   <script src="./js/custom/CMetroUser.class.js"></script>
     <script>
         var oLogger = new CLogger();
         var oUserAgent = new CUserAgent();
         oUserAgent.setUserAgent(navigator.userAgent);
-        if ( oUserAgent.isAndroid() ){
-            alert("Ce device est un android!\n"+oUserAgent.getUserAgent());
-            oLogger.info("Ce device est un android!\n"+oUserAgent.getUserAgent())
-        }
-        else{
-            alert("Ce device n'est pas un android!\n"+oUserAgent.getUserAgent());
-            oLogger.info("Ce device n'est pas un android!\n"+oUserAgent.getUserAgent());
-        }
     </script>
 </head>
     <body>
