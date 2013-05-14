@@ -33,7 +33,7 @@ class CMetroUserTable {
     
     public function getMetroUsersByLine( $line ){
         $line = (int)$line;
-        $rowSet = $this->tableGateway->select( array( 'ligne'=>$line ) );
+        $rowSet = $this->tableGateway->select( array( 'ligneid'=>$line ) );
         return $rowSet;
     }
     

@@ -19,6 +19,7 @@ function CMetroUser() {
  var FIELD_ALLOWNOTIFONLINE = "allownotifonline";
  var FIELD_CONTACTFIRST     = "contactfirst";
  var FIELD_LASTONLINE       = "lastonline";
+ var FIELD_LIGNEID          = "ligneid";
  var FIELD_TIMESTAMP        = "timestamp";
  
  var iId                = null;
@@ -35,6 +36,7 @@ function CMetroUser() {
  var bAllownotifonline  = null;
  var bContactfirst      = null;
  var dLastonline        = null;
+ var iLigneId           = null;
  var dTimestamp         = null;
  
  
@@ -67,13 +69,15 @@ function CMetroUser() {
  this.getContactfirst = function(){ return bContactfirst; }
  this.setlastonline = function(lo){ dLastonline = lo; }
  this.getLastonline = function(){ return dLastonline; }
+ this.setLigneId = function(li){ iLigneId = li; }
+ this.getLigneId = function(){ return iLigneId; }
  this.setTimestamp = function(ts){ dTimestamp = ts; }
  this.getTimestamp = function(){ return dTimestamp; }
  
  /** utility methods */
  this.setUserFromJSON = function( jsonObj ){
      for( var key in jsonObj ){
-         oLogger.info("Key: "+key);
+         //oLogger.info("Key: "+key);
          switch(key){
              case FIELD_AGE: this.setAge(jsonObj[key]); break;
              case FIELD_ALLOWNOTIFONLINE: this.setAllownotifonline(jsonObj[key]); break;
@@ -83,8 +87,9 @@ function CMetroUser() {
              case FIELD_CONTACTFIRST: this.setContactfirst(jsonObj[key]); break;
              case FIELD_DESC: this.setDesc(jsonObj[key]); break;
              case FIELD_EMAIL: this.setEmail(jsonObj[key]); break;
-             case FIELD_ID: this.setId(jsonObj[key]); break;
+             case FIELD_ID: this.setId(jsonObj[key]); oLogger.info("UserId: "+key); break;
              case FIELD_LASTONLINE: this.setlastonline(jsonObj[key]); break;
+             case FIELD_LIGNEID: this.setLigneId(jsonObj[key]); break;
              case FIELD_LOGIN: this.setLogin(jsonObj[key]); break;
              case FIELD_PHOTOID: this.setPhotoId(jsonObj[key]); break;
              case FIELD_PWD: this.setPwd(jsonObj[key]); break;

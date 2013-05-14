@@ -44,18 +44,27 @@ class IndexController extends AbstractActionController
     }
     
     public function testAction(){
-        $viewModel = new ViewModel(
-                array(
-                    'users' => $this->getMetroUserTable()->fetchAll(),
-                )
-        );
+        $ligneid = $this->getRequest()->getPost('ligneid','all');
+        
+        if ( $ligneid == '' || $ligneid == 'all' ){
+            $viewModel = new ViewModel(
+                    array(
+                        'users' => $this->getMetroUserTable()->fetchAll(),
+                    )
+            );
+        }
+        else{
+            $ligneid = (int)$ligneid;
+            $viewModel = new ViewModel(
+                    array(
+                        'users' => $this->getMetroUserTable()->getMetroUsersByLine($ligneid),
+                    )
+            );
+        }
         $viewModel->setTerminal(true);
         return $viewModel;
     }
     
-    public function ajaxGetOnlinesByLineAction(){
-        
-    }
             
     
 }

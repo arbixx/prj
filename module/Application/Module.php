@@ -27,6 +27,8 @@ use Application\Model\CMetroUserTable;
 use Application\Model\CMetroUser; 
 use Application\Model\CMetroLigneTable;
 use Application\Model\CMetroLigne; 
+use Application\Model\CMetroMessagesTable;
+use Application\Model\CMetroMessage; 
 
 class Module
 {
@@ -88,6 +90,18 @@ class Module
                     $resultSetPrototype = new ResultSet();
                     $resultSetPrototype->setArrayObjectPrototype(new CMetroLigne());
                     return new TableGateway('metro.lignes', $dbAdapter, null, $resultSetPrototype);
+                },
+                // Factories for table metro.msg
+                'Application\Model\CMetroMessagesTable' =>  function($sm) {
+                    $tableGateway = $sm->get('CMetroMessageTableGateway');
+                    $table = new CMetroMessagesTable($tableGateway);
+                    return $table;
+                },
+                'CMetroMessageTableGateway' => function ($sm) {
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $resultSetPrototype = new ResultSet();
+                    $resultSetPrototype->setArrayObjectPrototype(new CMetroMessage());
+                    return new TableGateway('metro.msg', $dbAdapter, null, $resultSetPrototype);
                 },
             ),
         );

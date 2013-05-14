@@ -2,7 +2,7 @@
 
 $continue = true;
 echo '{';
-while( $continue )
+while( $users->count()>0 && $continue )
 {
     $user = $users->current();
     echo $user->toJson();

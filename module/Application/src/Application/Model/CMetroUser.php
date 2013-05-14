@@ -22,6 +22,7 @@ class CMetroUser {
     private $allownotifonline;
     private $contactfirst;
     private $lastonline;
+    private $ligneid;
     private $timestamp;
     
     public function exchangeArray($data)
@@ -40,6 +41,7 @@ class CMetroUser {
         $this->allownotifonline = (isset($data['allownotifonline'])) ? $data['allownotifonline'] : null;
         $this->contactfirst     = (isset($data['contactfirst'])) ? $data['contactfirst'] : null;
         $this->lastonline       = (isset($data['lastonline'])) ? $data['lastonline'] : null;
+        $this->ligneid          = (isset($data['ligneid'])) ? $data['ligneid'] : null;
         $this->timestamp        = (isset($data['timestamp'])) ? $data['timestamp'] : null;
     }
     
@@ -85,6 +87,9 @@ class CMetroUser {
     public function getLastonline(){
         return $this->lastonline;
     }
+    public function getLigneId(){
+        return $this->ligneid;
+    }
     public function getTimestamp(){
         return $this->timestamp;
     }
@@ -109,6 +114,7 @@ class CMetroUser {
         $str .= '"allownotifonline": "'.$this->allownotifonline.'",';
         $str .= '"contactfirst": "'.$this->contactfirst.'",';
         $str .= '"lastonline": "'.$this->lastonline.'",';
+        $str .= '"ligneid": "'.$this->ligneid.'",';
         $str .= '"timestamp": "'.$this->timestamp.'"';
         $str .= '}';
         return $str;

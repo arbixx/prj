@@ -1,10 +1,19 @@
 <script>
-function getOnlines(){
-    $("#idMsgUser").html(
-            "<div class=\"ui-block-a\" style=\"height:80px; text-align:center\">Loading...<br/><img src='./images/loading.gif'></div>"
-    );
+function showLoadingPanel(){
+    $("#idMsgUser").slideDown(200);
+}
+
+function hideLoadingPanel(){
+    $("#idMsgUser").slideUp(200);
+}
+
+function getOnlines(ligneid){
+    showLoadingPanel();
     $.ajax({
         url:'application/index/test',
+        data: {
+          ligneid: ligneid,        
+        },
         dataType: 'json',
         type: 'POST',
         error: 
@@ -22,6 +31,7 @@ function getOnlines(){
                     }
                     //oLogger.info(listOnlinesHtml);
                     $('#idListOnlines').html(listOnlinesHtml).listview('refresh');
+                    hideLoadingPanel();
                 }
     });
 }
@@ -34,7 +44,7 @@ function getOnlines(){
             <li><a href="#navPanel" data-rel="close" onClick="javascript:getOnlines()">Toutes</a></li>
             <?php
                 foreach($lignes as $ligne){
-                    echo '<li><a href="#navPanel" data-rel="close">'.$this->escapeHtml($ligne->getName()).'</a></li>';    
+                    echo '<li><a href="#navPanel" data-rel="close" onClick="getOnlines('.$this->escapeHtml($ligne->getId()).')">'.$this->escapeHtml($ligne->getName()).'</a></li>';    
                 }
             ?>
     	</ul>
@@ -45,8 +55,8 @@ function getOnlines(){
         <h1>HEADER</h1>
     </div>
     <div data-role="content">
-        <div class="ui-grid-solo" id="idMsgUser">
-            
+        <div class="ui-grid-solo" style="display: none;" id="idMsgUser">
+            <div class="ui-block-a" style="height:80px; text-align:center">Loading...<br/><img src='./images/loading.gif'></div>
         </div>
         <ul id="idListOnlines" data-role="listview" data-filter="true" data-filter-placeholder="Cherchez un membre..." data-inset="true">
             <li><a href="#">PlaceHolder</a></li>
